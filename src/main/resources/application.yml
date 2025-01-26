@@ -1,0 +1,34 @@
+telegram:
+  bot:
+    api-url: https://api.telegram.org/
+    username: ${BOT_NAME}
+    token: ${BOT_TOKEN}
+    webhook-path: https://dimaster.tw1.ru/webhook
+    notify:
+      delay:
+        value: 10
+        unit: MINUTES
+
+server:
+  use-forward-headers: true
+  port: 8080
+
+spring:
+  application:
+    name: Exchange_rates_bot
+  datasource:
+    url: jdbc:mysql://localhost:3306/exchange_rates?useSSL=false&requireSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: Dimater12345
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+centralBank:
+  url: https://cbr.ru/scripts/XML_daily.asp
+app:
+  mailing time : "0 00 11 * * ?"
+  rate update frequency: 14400000
+  notification time: "0 20 11 * * ?"
